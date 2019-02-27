@@ -1,9 +1,12 @@
 package com.example.lhumer16_woche20;
 
 import android.content.res.AssetManager;
+import android.database.DataSetObserver;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -22,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     List<com.example.lhumer16_woche20.Person> list;
     ListView listV;
     SearchView sv;
+    ArrayAdapter ad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +33,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         listV = findViewById(R.id.ListView);
         sv = findViewById(R.id.SearchView);
-        //setListView();
+        setListView();
+
+        //https://stackoverflow.com/questions/35802924/android-searchview-setonquerytextlistener-not-working
+        //copy
+
+        sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                ad.getFilter().filter(newText);
+                return true;
+            }
+        });
     }
 
     public static void main(String[] args) {
@@ -71,23 +91,25 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-//    public void setListView() {
-//        List<Person> l = readCsv();
-//        String[] array = new String[l.size()];
-//
-//        for (int i = 0; i < l.size(); i++) {
-//
-//            array[i] = l.get(i).getFirstname() + "," + l.get(i).getLastname();
-//        }
-//
-//        ListAdapter ad = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, array);
-//        listV.setAdapter(ad);
-//
-//    }
+    public void setListView() {
+        List<Person> l = readCsv();
+        String[] array = new String[l.size()];
+
+        for (int i = 0; i < l.size(); i++) {
+
+            array[i] = l.get(i).getFirstname() + "," + l.get(i).getLastname();
+        }
+
+        ad = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, array);
+        listV.setAdapter(ad);
+
+    }
 
     public void test()
     {
+        int i = 10;
         //sköldfjadslköfjldas
+        //askldfjadslköfjndskl
     }
 }
 
