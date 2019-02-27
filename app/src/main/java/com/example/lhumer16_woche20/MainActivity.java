@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         listV = findViewById(R.id.ListView);
         sv = findViewById(R.id.SearchView);
-        setListView();
+        //setListView();
     }
 
     public static void main(String[] args) {
@@ -71,19 +71,19 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void setListView() {
-        List<Person> l = readCsv();
-        String[] array = new String[l.size()];
-
-        for (int i = 0; i < l.size(); i++) {
-
-            array[i] = l.get(i).getFirstname() + "," + l.get(i).getLastname();
-        }
-
-        ListAdapter ad = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, array);
-        listV.setAdapter(ad);
-
-    }
+//    public void setListView() {
+//        List<Person> l = readCsv();
+//        String[] array = new String[l.size()];
+//
+//        for (int i = 0; i < l.size(); i++) {
+//
+//            array[i] = l.get(i).getFirstname() + "," + l.get(i).getLastname();
+//        }
+//
+//        ListAdapter ad = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, array);
+//        listV.setAdapter(ad);
+//
+//    }
 
     public void test()
     {
