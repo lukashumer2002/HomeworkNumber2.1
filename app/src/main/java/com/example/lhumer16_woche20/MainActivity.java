@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     @Override
     public boolean onQueryTextChange(String newText) {
         ad.getFilter().filter(newText);
-                return false;
+        return false;
     }
 }
 
