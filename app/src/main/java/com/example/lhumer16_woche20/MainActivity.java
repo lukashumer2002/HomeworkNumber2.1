@@ -18,7 +18,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-
 //https://stackoverflow.com/questions/35802924/android-searchview-setonquerytextlistener-not-working
 public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener{
 
@@ -37,6 +36,19 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         setListView();
 
 
+
+//        sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                ad.getFilter().filter(newText);
+//                return true;
+//            }
+//        });
     }
 
     public static void main(String[] args) {
